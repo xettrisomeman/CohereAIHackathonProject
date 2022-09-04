@@ -1,5 +1,5 @@
+Take the passage and summarize it.
+
 Passage: <<CONTENT>>
 
 TLDR:
-
-

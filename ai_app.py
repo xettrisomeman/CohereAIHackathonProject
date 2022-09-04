@@ -118,12 +118,13 @@ def main():
         lines = open_files("text_summarizer.txt").replace(
             "<<CONTENT>>", prompt
         )
+        print(lines)
         text_summarization(
             lines=lines,
             user_prompt=prompt,
             co_here=CLIENT,
             max_tokens=150,
-            temperature=0.8
+            temperature=0.5
         )
 
     elif choice == "Chatbot":
