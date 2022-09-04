@@ -32,6 +32,7 @@ def main():
                   'Grammer Check', 'Translation',
                   'Story Generation', 'Code Explanation']
     choice = st.sidebar.selectbox("Select Activity", activities)
+
     if choice == 'Story Generation':
         clear_cache()
         prompt_input = "Please input a starter and choose theme for a story."
@@ -44,12 +45,11 @@ def main():
                  "Time-Loop", "Mystery", "Simple Story", "Mythology"]
         theme_choice = st.selectbox("Pick a theme", theme)
         lines = open_files("story_generation.txt").replace(
-
-            "<<CONTENT>>", prompt).replace("<<THEME>>", theme_choice)
+            "<<STORY>>", prompt).replace("<<THEME>>", theme_choice)
         story_generation(lines=lines,
                          user_prompt=prompt,
-                         co_here=CLIENT, max_tokens=100,
-                         temperature=0.7)
+                         co_here=CLIENT, max_tokens=50,
+                         temperature=0.5)
 
     elif choice == "Code Explanation":
         clear_cache()
@@ -75,7 +75,7 @@ def main():
             max_chars=2000,
             height=320)
         languages = ['English', 'Japanese',
-                     'Chinese', 'French', 'Espanyol', 'Hindi']
+                     'Chinese', 'French', 'Espanyol', 'Hindi', 'Russian']
         source = st.selectbox("Pick Source Language", languages)
         target = st.selectbox("Pick Target Language", languages)
         lines = open_files("translation.txt").replace(
@@ -105,7 +105,7 @@ def main():
             user_prompt=prompt,
             co_here=CLIENT,
             max_tokens=len(prompt) + 50,
-            temperature=0.3
+            temperature=0.4
         )
 
     elif choice == "Text Summarizer":
@@ -158,7 +158,7 @@ def main():
             lines=lines,
             user_prompt=prompt,
             max_tokens=50,
-            temperature=0.3
+            temperature=0.5
         )
         if predictions:
             input_and_predictions = f"{predictions}"

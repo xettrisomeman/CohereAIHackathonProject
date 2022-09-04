@@ -1,5 +1,6 @@
 Generate story based on Theme. The story should be detailed and should have no grammatical errors.
 
-Theme: <<THEME>>
+Theme:<<THEME>>
+Generated Story:<<STORY>>
 
-Story: <<CONTENT>>
+
