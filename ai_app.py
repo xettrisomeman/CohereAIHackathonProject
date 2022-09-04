@@ -19,6 +19,11 @@ API_KEY = os.environ['API_KEY']
 CLIENT = cohere.Client(f"{API_KEY}")
 
 
+def clear_cache():
+    for key in st.session_state.keys():
+        del st.session_state[key]
+
+
 def main():
     """A main function to return output based on user input"""
     st.title("An AI app that can do everything.")
@@ -28,6 +33,7 @@ def main():
                   'Story Generation', 'Code Explanation']
     choice = st.sidebar.selectbox("Select Activity", activities)
     if choice == 'Story Generation':
+        clear_cache()
         prompt_input = "Please input a starter and choose theme for a story."
         prompt = prompt_engine(
             prompt=prompt_input,
@@ -46,6 +52,7 @@ def main():
                          temperature=0.7)
 
     elif choice == "Code Explanation":
+        clear_cache()
         prompt_input = "Please input code to get Explanation."
         prompt = st.text_area(
             prompt_input,
@@ -61,6 +68,7 @@ def main():
         )
 
     elif choice == "Translation":
+        clear_cache()
         prompt_input = "Please input text to translate."
         prompt = st.text_area(
             prompt_input,
@@ -83,6 +91,7 @@ def main():
         )
 
     elif choice == "Grammer Check":
+        clear_cache()
         prompt_input = "Please input text."
         prompt = st.text_area(
             prompt_input,
@@ -100,6 +109,7 @@ def main():
         )
 
     elif choice == "Text Summarizer":
+        clear_cache()
         prompt_input = "Enter Text(The language should be English)."
         prompt = st.text_area(
             prompt_input,
@@ -117,7 +127,6 @@ def main():
         )
 
     elif choice == "Chatbot":
-
         predictions = None
         st.header("Hello Chatbot")
 
