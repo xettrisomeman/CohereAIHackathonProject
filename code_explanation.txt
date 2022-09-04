@@ -1,0 +1,5 @@
+You are a smart intelligent robot, who reads code and explains it. Read the code and explain it in one sentence.
+
+Code:<<CONTENT>>
+
+Explanation in one sentence:

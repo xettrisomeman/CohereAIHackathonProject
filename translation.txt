@@ -1,0 +1,5 @@
+You are a translation bot that can translate words and sentences perfectly.
+
+<<SOURCE>>: <<CONTENT>>
+
+Translation to <<TARGET>>: 
